@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.2 on win32)" generated="20200511 14:53:21.809" rpa="false">
+<suite id="s1" name="Suites">
+<suite id="s1-s1" name="Formulario2" source="C:\RobotFramework\CI\robotmobile\formulario2.robot">
+<test id="s1-s1-t1" name="Cenário 01: Preencher formulario">
+<kw name="Acesso Home" library="Home" type="setup">
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<arguments>
+<arg>${REMOTE_URL}</arg>
+<arg>platformName=${platformName}</arg>
+<arg>udid=${dispositivo}</arg>
+<arg>deviceName=${deviceName}</arg>
+<arg>automationName=${automationName}</arg>
+<arg>appPackage=${appPackage}</arg>
+<arg>appActivity=${appActivity}</arg>
+</arguments>
+<status status="PASS" starttime="20200511 14:53:22.617" endtime="20200511 14:53:47.930"></status>
+</kw>
+<status status="PASS" starttime="20200511 14:53:22.616" endtime="20200511 14:53:47.931"></status>
+</kw>
+<kw name="Dado que estou na tela de formulario">
+<kw name="Acesso formulario" library="Home">
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${formulario}</arg>
+</arguments>
+<msg timestamp="20200511 14:53:47.933" level="INFO">Clicking element 'xpath=//android.widget.TextView[@text='Formulário']'.</msg>
+<status status="PASS" starttime="20200511 14:53:47.932" endtime="20200511 14:53:49.254"></status>
+</kw>
+<status status="PASS" starttime="20200511 14:53:47.931" endtime="20200511 14:53:49.254"></status>
+</kw>
+<status status="PASS" starttime="20200511 14:53:47.931" endtime="20200511 14:53:49.254"></status>
+</kw>
+<kw name="Quando preencher os campos com nome: &quot;${Cliente.Usuario}&quot;, console: &quot;'${Cliente.Console_Preferido}'&quot;">
+<kw name="User">
+<arguments>
+<arg>${Cliente.Usuario}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${campo_nome}</arg>
+</arguments>
+<status status="PASS" starttime="20200511 14:53:49.256" endtime="20200511 14:53:50.141"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${campo_nome}</arg>
+</arguments>
+<msg timestamp="20200511 14:53:50.143" level="INFO">Clicking element 'accessibility_id=nome'.</msg>
+<status status="PASS" starttime="20200511 14:53:50.141" endtime="20200511 14:53:50.489"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${campo_nome}</arg>
+<arg>${uname}</arg>
+</arguments>
+<msg timestamp="20200511 14:53:50.491" level="INFO">Typing text 'Manoel' into text field 'accessibility_id=nome'</msg>
+<status status="PASS" starttime="20200511 14:53:50.489" endtime="20200511 14:53:52.458"></status>
+</kw>
+<status status="PASS" starttime="20200511 14:53:49.255" endtime="20200511 14:53:52.458"></status>
+</kw>
+<kw name="Console">
+<arguments>
+<arg>${Cliente.Console_Preferido}</arg>
+</arguments>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${campo_console}</arg>
+</arguments>
+<msg timestamp="20200511 14:53:52.460" level="INFO">Clicking element 'accessibility_id=console'.</msg>
+<status status="PASS" starttime="20200511 14:53:52.459" endtime="20200511 14:53:53.414"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${campo_modelo_console}</arg>
+</arguments>
+<status status="PASS" starttime="20200511 14:53:53.414" endtime="20200511 14:53:54.369"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${campo_modelo_console}\[@text=${tipoConsole}]</arg>
+</arguments>
+<msg timestamp="20200511 14:53:54.372" level="INFO">Clicking element 'xpath=//android.widget.CheckedTextView[@text='PS4']'.</msg>
+<status status="PASS" starttime="20200511 14:53:54.370" endtime="20200511 14:53:55.151"></status>
+</kw>
+<status status="PASS" starttime="20200511 14:53:52.458" endtime="20200511 14:53:55.152"></status>
+</kw>
+<status status="PASS" starttime="20200511 14:53:49.254" endtime="20200511 14:53:55.152"></status>
+</kw>
+<kw name="E marcar o checkbox e desabilitar o switch">
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${campo_check}</arg>
+</arguments>
+<msg timestamp="20200511 14:53:55.154" level="INFO">Clicking element 'accessibility_id=check'.</msg>
+<status status="PASS" starttime="20200511 14:53:55.152" endtime="20200511 14:53:55.193"></status>
+</kw>
+<kw name="Element Attribute Should Match" library="AppiumLibrary">
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<arguments>
+<arg>${campo_check}</arg>
+<arg>checked</arg>
+<arg>true</arg>
+</arguments>
+<msg timestamp="20200511 14:53:55.718" level="INFO">Element 'accessibility_id=check' attribute 'checked' is 'true' </msg>
+<status status="PASS" starttime="20200511 14:53:55.193" endtime="20200511 14:53:55.718"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${campo_switch}</arg>
+</arguments>
+<msg timestamp="20200511 14:53:55.720" level="INFO">Clicking element 'accessibility_id=switch'.</msg>
+<status status="PASS" starttime="20200511 14:53:55.718" endtime="20200511 14:53:55.783"></status>
+</kw>
+<kw name="Element Attribute Should Match" library="AppiumLibrary">
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<arguments>
+<arg>${campo_switch}</arg>
+<arg>checked</arg>
+<arg>false</arg>
+</arguments>
+<msg timestamp="20200511 14:53:56.401" level="INFO">Element 'accessibility_id=switch' attribute 'checked' is 'false' </msg>
+<status status="PASS" starttime="20200511 14:53:55.783" endtime="20200511 14:53:56.401"></status>
+</kw>
+<status status="PASS" starttime="20200511 14:53:55.152" endtime="20200511 14:53:56.401"></status>
+</kw>
+<kw name="Então os dados de nome &quot;${Cliente.Usuario}&quot; e console &quot;${Cliente.Console_Preferido}&quot; devem ser gravados com sucesso">
+<kw name="Get Webelement" library="AppiumLibrary">
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<arguments>
+<arg>${campo_nome}</arg>
+</arguments>
+<assign>
+<var>${verificar_usuario}</var>
+</assign>
+<msg timestamp="20200511 14:53:56.424" level="INFO">${verificar_usuario} = &lt;appium.webdriver.webelement.WebElement (session="695079c2-a225-46da-beba-362bb51c374b", element="1ef590a2-0f20-46f8-8a6c-c65e3061eae6")&gt;</msg>
+<status status="PASS" starttime="20200511 14:53:56.402" endtime="20200511 14:53:56.424"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${verificar_usuario.text}</arg>
+<arg>${Cliente.Usuario}</arg>
+</arguments>
+<status status="PASS" starttime="20200511 14:53:56.424" endtime="20200511 14:53:56.438"></status>
+</kw>
+<kw name="Get Webelement" library="AppiumLibrary">
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<arguments>
+<arg>${valor_console}</arg>
+</arguments>
+<assign>
+<var>${verificar_console}</var>
+</assign>
+<msg timestamp="20200511 14:53:56.536" level="INFO">${verificar_console} = &lt;appium.webdriver.webelement.WebElement (session="695079c2-a225-46da-beba-362bb51c374b", element="161ec81c-69ee-471a-bfdf-fc309e987026")&gt;</msg>
+<status status="PASS" starttime="20200511 14:53:56.438" endtime="20200511 14:53:56.536"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${verificar_console.text}</arg>
+<arg>${Cliente.Console_Preferido}</arg>
+</arguments>
+<status status="PASS" starttime="20200511 14:53:56.536" endtime="20200511 14:53:56.553"></status>
+</kw>
+<kw name="Click Text" library="AppiumLibrary">
+<doc>Click text identified by ``text``.</doc>
+<arguments>
+<arg>SALVAR</arg>
+</arguments>
+<status status="PASS" starttime="20200511 14:53:56.553" endtime="20200511 14:53:56.665"></status>
+</kw>
+<status status="PASS" starttime="20200511 14:53:56.401" endtime="20200511 14:53:56.666"></status>
+</kw>
+<kw name="Fechar Aplicacao" library="Home" type="teardown">
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20200511 14:53:57.142" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200511 14:53:56.666" endtime="20200511 14:53:57.142"></status>
+</kw>
+<kw name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20200511 14:53:57.142" endtime="20200511 14:53:57.818"></status>
+</kw>
+<status status="PASS" starttime="20200511 14:53:56.666" endtime="20200511 14:53:57.818"></status>
+</kw>
+<status status="PASS" starttime="20200511 14:53:22.615" endtime="20200511 14:53:57.818" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200511 14:53:21.878" endtime="20200511 14:53:57.819"></status>
+</suite>
+<status status="PASS" starttime="20200511 14:53:21.830" endtime="20200511 14:53:57.829"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Suites">Suites</stat>
+<stat pass="1" fail="0" id="s1-s1" name="Formulario2">Suites.Formulario2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

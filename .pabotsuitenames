@@ -1,0 +1,6 @@
+datasources:bc3ea1b4580971b27b3079fb9c5a21c724321faf
+commandlineoptions:9f8598a690c7367accf83ead504756ddd374acc9
+suitesfrom:no-suites-from-option
+file:e4fb091842dc97859c178c6d26d5da1aa8e5d7c2
+--suite Suites.Formulario
+--suite Suites.Formulario2

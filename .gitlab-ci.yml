@@ -1,0 +1,75 @@
+stages:
+  - Acceptance Tests
+
+# Job Linux Fedora - execução dos testes sem docker
+Test web mobile:
+    stage: Acceptance Tests
+    image: srinivasansekar/docker-appium
+
+
+    tags:
+        - docker
+    artifacts:
+        when: always
+        paths:
+            - ./results
+        expire_in: 1 week
+    before_script:
+#         - cat /etc/*-release
+#         - dnf upgrade -y >/dev/null && echo OK
+          # - apt-get install python3-pip
+          # - dnf install -y python37 >/dev/null && echo OK
+        # - dnf install -y chromedriver-stable >/dev/null && echo OK
+        # - dnf install -y https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm >/dev/null && echo OK
+        # - dnf install -y python3-pip >/dev/null && echo OK
+        # - chown root /usr/bin/chromedriver >/dev/null && echo OK
+        # - chmod +x /usr/bin/chromedriver >/dev/null && echo OK
+        # - chmod 755 /usr/bin/chromedriver >/dev/null && echo OK
+        # - chromedriver --version
+          # - apt-get install python3
+          # - apt-get install python3-pip
+          # - apt update
+          # - apt-get install python3
+          # - apt-get update && apt-get install -y python3 python3-pip
+          # - apt-get install python3-pip -y
+          - pip3 install robotframework robotframework-seleniumlibrary robotframework-appiumlibrary==1.5.0.2 | grep "Successfully installed"
+          - apt-get update && apt-get install usbutils -y
+          - apt-get install openjdk-8-jdk
+          - export PATH=$PATH:/usr/lib/jvm/java-8-openjdk/bin
+          - apt install wget
+          - wget http://dl.google.com/android/android-sdk_r24.2-linux.tgz
+
+          # - emulator -list-avds
+          # - emulator -avd Nexus -force-32bit
+          - adb kill-server
+          - adb devices
+          - apt-get install android-tools-adb -y
+          - adb devices
+          # - appium
+          # - adb devices
+    script:
+        - robot -d ./results formulario.robot
+
+# Job Docker - execução dos testes em container Docker
+# WEB Testing in Chrome and Docker:
+#     stage: Acceptance Tests
+#     image: registry.gitlab.com/jansenrobotprojects/dockerimageappium:latest
+#     tags:
+#         - docker
+#     artifacts:
+#         when: always
+#         paths:
+#             - ./results
+#         expire_in: 1 week
+#     # before_script:
+#     #     - docker-machine create --driver virtualbox appium-test-machine
+#     #     - docker-machine stop appium-test-machine
+#     #     - vboxmanage modifyvm appium-test-machine --usb on --usbehci on
+#     #     - docker-machine start appium-test-machine
+#     #     - adb kill-server
+#     #     - docker-machine ssh appium-test-machine
+#     #     - docker run --privileged -d -p 4723:4723  -v /dev/bus/usb:/dev/bus/usb --name container-appium appium/appium
+#     #     - docker exec -it container-appium adb devices
+#     #     - docker cp ./APK/CTAppium_1_2.apk container-appium:/opt
+#     script:
+#         - robot -d ./results formulario.robot
